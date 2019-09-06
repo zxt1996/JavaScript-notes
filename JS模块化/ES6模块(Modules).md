@@ -56,3 +56,25 @@ goat.speak() // baa
 
 ```
 当你import *时，导入的其实是一个模块命名空间对象，模块将它的所有属性都导出了。
+## 使用
+模块a:
+```
+export var a = 1;
+export function modify(){
+    a = 2;
+}
+```
+模块 b:
+```
+import {a,modify}from "./a.js";
+
+console.log(a);
+modify();
+console.log(a);
+```
+当我们调用修改变量的函数后，b模块变量也跟着发生了改变，这说明导入与一般的赋值不同，导入后的变量只是改变了名字，它仍然与原来的变量是同一个。
+```
+var a = {};
+export default a;
+```
+这里的行为跟导出变量是不一致的，这里导出的是值，导出的就是普通变量a的值，以后a的变化与导出的值就无关了，修改变量a，不会使得其他模块中引入的default值发生改变。
