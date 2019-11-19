@@ -1,0 +1,40 @@
+<!doctype html>
+<body>
+<div id="menu">
+  <button data-action="save">Save</button>
+  <button data-action="load">Load</button>
+  <button data-action="search">Search</button>
+</div>
+
+<script>
+  class Menu {
+    constructor(elem) {
+      this._elem = elem;
+      //绑定到了this,否则内部 this 将引用 DOM 元素（elem）,而不是菜单对象
+      elem.onclick = this.onClick.bind(this); 
+    }
+
+    save() {
+      alert('saving');
+    }
+
+    load() {
+      alert('loading');
+    }
+
+    search() {
+      alert('searching');
+    }
+
+    onClick(event) {
+        console.log(event.target.dataset);
+      let action = event.target.dataset.action;
+      if (action) {
+        this[action]();
+      }
+    };
+  }
+
+  new Menu(menu);
+</script>
+</body>
