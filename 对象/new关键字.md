@@ -1,4 +1,21 @@
 # new关键字
+当一个函数作为**new User(...)**执行时，它执行以下步骤：  
+1. 一个新的空对象被创建并分配给this
+2. 函数体执行。通常它会修改this,为其添加新的属性
+3. 返回this的值  
+
+```
+function User(name){
+  //this={};(隐式创建)
+
+  //添加属性到this
+  this.name = name;
+  this.isAdmin = false;
+
+  //return this;(隐式返回)
+}
+```
+
 > 当我们使用new Object时，new关键字创建了一个新的对象，并将该对象作为构造函数内**this关键字指向的对象**。实际上，new关键字并未创建一个新的对象：**它只是拷贝了一个对象**这个被拷贝的对象就是**原型(prototype)**  
 
 所有能被作为构造函数使用的函数都有一个prototype属性，这个属性对象定义了你实例化对象的结构。当使用new Object时，一个对Object.prototype的拷贝被创造出来，这个拷贝就是新创建的那个实例对象。
@@ -89,4 +106,34 @@ function objectFactory(){
     
     return typeof ret === 'object' ? ret : obj;//确保构造器总是返回一个对象
 }
+```
+
+## 双语法构造函数：new.target
+在一个函数内部，我们可以使用 **new.target** 属性来检查它被调用时，是否使用了 new。
+
+常规调用为空，如果通过 new 调用，则等于函数：
+
+```
+function User(){
+  alert(new.target);
+}
+
+//不带new;
+User();//undefined
+
+//带new
+new User();//function User{...}
+```
+这可以使 new 和常规语法的工作原理相同：
+```
+function User(name){
+  if(!new.target){
+    //如果没有运行new,会为你添加new
+    return new User(name);
+  }
+  this.name = name;
+}
+
+let john = User('John');//重新调用new User
+alert(john.name);//John
 ```
