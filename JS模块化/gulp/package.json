@@ -1,0 +1,25 @@
+{
+  "name": "mygulp",
+  "version": "1.0.0",
+  "description": "gulp",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.13.0"
+  },
+  "scripts": {
+    "creatDir": "npx mkdirp src/images src/js src/css src/images src/scss src/font",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zongqiu",
+  "license": "ISC"
+}
