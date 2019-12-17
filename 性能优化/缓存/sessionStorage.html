@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>sessionStorage</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			会话级 sessionStorage
+//			当浏览器被关闭或标签页被关闭时,数据自动过期销毁,
+//			相同 协议/域名 /端口 的不同页面间,无法互相访问sessionStorage里的数据
+
+
+//			语法:
+//			1.设置/添加 储存信息
+			sessionStorage.setItem("key","value")
+			sessionStorage.setItem("class","bulej026")
+			sessionStorage.setItem("name","userName")
+			sessionStorage.setItem("sex","man")
+			
+//			2.读取/获取 储存信息
+			let data1 = sessionStorage.getItem("class")
+			console.log(data1)
+			
+//			3.删除/移除指定 储存信息:传入指定key 值
+			sessionStorage.removeItem("sex")
+			
+//			4.移除所有的 储存信息
+			sessionStorage.clear();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>localStorage</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			持久化/ 本地储存方案 localStorage
+//			持久化储存,会在硬件层面上生成对应数据的文件,当浏览器关闭时,数据依然保留在硬件上,
+//			除非用户手动删除
+//			相同 域名/协议/端口号 下的不同页面,数据储存在同一空间内.
+
+//			大小限制:火狐/谷歌5MB
+
+//			语法:
+//			localStorage.setItem("key","value")
+//			1.设置/添加 储存信息
+			localStorage.setItem("key","value")
+			localStorage.setItem("name","wuyijia")
+			localStorage.setItem("sex","man")
+			localStorage.setItem("top","178cm")
+			localStorage.setItem("kg","60kg")
+
+			
+//			2.读取/获取 储存信息
+			let data = localStorage.getItem("name")
+			console.log(data)
+
+//			3.删除/移除指定 储存信息:传入指定key 值
+			localStorage.removeItem("key")
+			
+	
+//			4.移除所有的 储存信息
+//			localStorage.clear()
+			
+		</script>
+	</body>
+</html>
