@@ -109,7 +109,7 @@ const viewHeight = window.innerHeight || document.documentElement.clientHeight
 
     function _isShow(el){ //判断img是否已经进入视口
         let coords = el.getBoundingClientRect();
-        return ((coords.top >= 0 && coords.left >= && coords.top) <= (window.innerHeight || document.documentElement.clientHeight) + parseInt(offset));
+        return ((coords.top >= 0 && coords.left >= 0 && coords.top) <= (window.innerHeight || document.documentElement.clientHeight) + parseInt(offset));
     }
 
     function _load(){  //img加载
